@@ -6,11 +6,15 @@
     <title>Permacultura & Futuro | Curso de Diseño Regenerativo</title>
     
     <!-- Chosen Palette: Earthy Harmony -->
-    <!-- Application Structure Plan: A single-page application with vertical scrolling and a fixed navigation bar for easy access to key sections. The structure is designed for a prospective student's journey: 1. Hero section to capture attention. 2. 'About' section to explain the core concepts (Permaculture, AI, Ecology). 3. An interactive 'Program' section using tabs to detail each module without overwhelming the user. This is the core interactive element. 4. Sections for Facilitators and Investment details, logically separated for clarity. 5. A final contact/registration footer. This non-linear, thematic structure is more user-friendly and digestible than the original document's linear format. -->
+    <!-- Application Structure Plan: A single-page application with vertical scrolling and a fixed navigation bar for easy access to key sections. The structure is designed for a prospective student's journey: 1. Hero section to capture attention. 2. 'Our Purpose' section for the flyer content. 3. 'About' section to explain the core concepts (Permaculture, AI, Ecology). 4. An interactive 'Program' section using tabs to detail each module with thematic images. 5. Sections for Facilitators and Investment details, logically separated for clarity. 6. A final contact/registration footer. This non-linear, thematic structure is more user-friendly digestible than the original document's linear format. -->
     <!-- Visualization & Content Choices: 
-        - Report Info: Course Schedule -> Goal: Organize/Inform -> Viz/Presentation: Interactive Tabs (HTML/CSS/JS) -> Interaction: User clicks on a module tab to reveal its specific details (date, content, location). -> Justification: Tabs break down a large amount of text into manageable chunks, preventing user overload.
+        - Report Info: Course Schedule -> Goal: Organize/Inform -> Viz/Presentation: Interactive Tabs (HTML/CSS/JS) with thematic images per module -> Interaction: User clicks on a module tab to reveal its specific details (date, content, location, image). -> Justification: Tabs break down a large amount of text into manageable chunks, preventing user overload. Images enhance visual appeal and understanding of each module's theme.
         - Report Info: Key Concepts (Permacultura, AI, Ecology) -> Goal: Inform -> Viz/Presentation: Icon-driven info cards (HTML/Tailwind) -> Interaction: None, static display -> Justification: Cards visually separate the concepts, making them easy to read and absorb.
         - Report Info: Pricing/Details -> Goal: Inform -> Viz/Presentation: A structured list with icons (HTML/Tailwind) -> Interaction: None, static display -> Justification: Icons improve scannability for key information like price, capacity, and what's included.
+        - Report Info: General Course Description (Flyer) -> Goal: Inform/Engage -> Viz/Presentation: Dedicated section with prominent text -> Interaction: None, static display -> Justification: Provides a clear, impactful summary of the course's philosophy at a glance.
+        - Report Info: Logo -> Goal: Branding -> Viz/Presentation: Small image in header -> Interaction: None, static display -> Justification: Establishes visual identity.
+        - Background: Subtle ecological pattern using CSS gradients. -> Justification: Adds a natural, sober aesthetic without distracting from content.
+        - Facilitator Images: Generic placeholder images below each facilitator. -> Justification: Provides visual representation for each facilitator, easily replaceable.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
@@ -21,14 +25,24 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: #FDFBF8; /* Base color */
+            /* Subtle ecological pattern using CSS gradients */
+            background-image: linear-gradient(45deg, rgba(160, 196, 157, 0.05) 25%, transparent 25%, transparent 75%, rgba(160, 196, 157, 0.05) 75%, rgba(160, 196, 157, 0.05) 100%),
+                              linear-gradient(45deg, rgba(160, 196, 157, 0.05) 25%, transparent 25%, transparent 75%, rgba(160, 196, 157, 0.05) 75%, rgba(160, 196, 157, 0.05) 100%);
+            background-size: 40px 40px; /* Size of the pattern squares */
+            background-position: 0 0, 20px 20px; /* Offset for repeating pattern */
         }
+        /* Removed #hero background image and overlay styles */
     </style>
 </head>
 <body class="bg-[#FDFBF8] text-[#3a3a3a]">
 
     <header class="bg-[#FDFBF8]/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-green-800">🌱 Permacultura & Futuro</a>
+            <a href="#" class="flex items-center space-x-2 text-xl font-bold text-green-800">
+                <!-- Logo eliminado -->
+                <span>🌱 Permacultura & Futuro</span>
+            </a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#programa" class="hover:text-green-700 transition-colors">Programa</a>
                 <a href="#facilitadores" class="hover:text-green-700 transition-colors">Facilitadores</a>
@@ -42,7 +56,7 @@
     <main>
         <section id="hero" class="h-screen min-h-[600px] flex items-center justify-center bg-[#FDFBF8]">
             <div class="text-center p-6">
-                <h1 class="text-4xl md:text-6xl font-bold text-green-900 leading-tight">Diseñá el mundo que sueñas</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-green-900 leading-tight">Reverdeciendo el Pedemonte en Comunidad</h1>
                 <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-600">Un curso de introducción al Diseño Regenerativo que une sabiduría ancestral, ecología profunda y tecnología de vanguardia.</p>
                 <p class="mt-2 text-lg md:text-xl font-semibold text-green-700">¡Inicia AGOSTO 2025!</p>
                 <div class="mt-8">
@@ -51,7 +65,20 @@
             </div>
         </section>
 
-        <!-- Se ha eliminado la sección "Nuestro Propósito" que contenía el flyer -->
+        <section id="proposito" class="py-16 md:py-24 bg-green-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Nuestro Propósito</h2>
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-700 leading-relaxed">
+                    La permacultura y la inteligencia artificial pueden parecer dos caminos distintos, pero cuando se encuentran, nace algo poderoso: una forma de pensar, diseñar y vivir que une sabiduría ancestral y tecnología de vanguardia, al servicio del bien común, la regeneración del planeta y la evolución de la conciencia.
+                    <br><br>
+                    Este curso propone una experiencia transformadora, donde vas a aprender a observar la naturaleza, diseñar sistemas vivos, colaborar con otras personas y utilizar herramientas de IA como una aliada en el proceso de diseño regenerativo. Incluye actividades prácticas de Ecología Profunda.
+                    <br><br>
+                    Porque creemos que otro mundo no sólo es posible: ¡ya lo estamos construyendo!
+                    <br><br>
+                    Este curso no es sólo una formación: es un llamado. Una propuesta para aprender a regenerar junt@s la Tierra, los vínculos, nuestras formas de habitar. La inteligencia artificial, lejos de ser un enemigo, puede ser una herramienta colaborativa que facilite el proceso de diseño y puesta en funcionamiento de nuestros sistemas vivos. Y la Permacultura nos guía en la búsqueda del equilibrio, la paz y la abundancia compartida.
+                </p>
+            </div>
+        </section>
 
         <section id="about" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
@@ -105,14 +132,17 @@
                     <div class="bg-gray-50 rounded-xl p-6 text-center shadow-sm">
                         <h4 class="text-xl font-bold text-green-800">Ing. Leandro Mastrantonio</h4>
                         <p class="text-gray-600 mt-1">Diseño hidrológico KeyLine y análisis de suelo.</p>
+                        <img src="https://placehold.co/150x150/A0C49D/FFFFFF?text=Persona" alt="" class="w-32 h-32 rounded-full mx-auto mt-4 object-cover">
                     </div>
                     <div class="bg-gray-50 rounded-xl p-6 text-center shadow-sm">
                         <h4 class="text-xl font-bold text-green-800">Ing. Celina Di Cenzi</h4>
                         <p class="text-gray-600 mt-1">Paisajismo. Diseño e implementación de riego por goteo.</p>
+                        <img src="https://drive.google.com/file/d/1FNFzLV2vaYgMe6wfhquq_Po9ymZ5-qIM/view" alt="" class="w-32 h-32 rounded-full mx-auto mt-4 object-cover">
                     </div>
                     <div class="bg-gray-50 rounded-xl p-6 text-center shadow-sm">
                         <h4 class="text-xl font-bold text-green-800">Ing. Hugo Oros (Kosmi)</h4>
                         <p class="text-gray-600 mt-1">Introducción a la Permacultura y Ecología Profunda.</p>
+                        <img src="https://placehold.co/150x150/A0C49D/FFFFFF?text=Persona" alt="" class="w-32 h-32 rounded-full mx-auto mt-4 object-cover">
                     </div>
                 </div>
             </div>
@@ -129,17 +159,18 @@
                     <div class="bg-white p-8 rounded-xl shadow-lg">
                         <h3 class="text-2xl font-bold text-green-800 mb-4">Intercambio Sugerido</h3>
                         <ul class="space-y-3 text-gray-700">
-                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">🎟️</span><div><strong class="font-semibold text-gray-800">Encuentro Introductorio (17/Ago):</strong> Gratuito y abierto a la comunidad.</div></li>
-                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">💸</span><div><strong class="font-semibold text-gray-800">Módulos Completos:</strong> $35.000 por persona cada módulo.</div></li>
-                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">🎉</span><div><strong class="font-semibold text-gray-800">Promo 50%:</strong> Si venís con alguien, ¡esa persona abona la mitad!</div></li>
-                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">🤝</span><div><strong class="font-semibold text-gray-800">Becas y Trueque:</strong> Consultanos por becas disponibles y la posibilidad de intercambios.</div></li>
+                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">🎟️</span><div><strong class="font-semibold text-gray-800">Charla Informativa (17/Ago) </strong> Gratuito y abierto a la comunidad.</div></li>
+                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">💸</span><div><strong class="font-semibold text-gray-800">Módulo I Agosto: </strong> $15.000 incluye 5 arbolitos</div></li>
+                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">💸</span><div><strong class="font-semibold text-gray-800">Módulo II Septiembre:</strong> $35.000</div></li>
+                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">🎉</span><div><strong class="font-semibold text-gray-800">Módulo III Octubre:</strong> $20.000</div></li>
+                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">🎉</span><div><strong class="font-semibold text-gray-800">Módulo IV Noviembre:</strong> Gratuito</div></li>
                         </ul>
                     </div>
 
                     <div class="bg-white p-8 rounded-xl shadow-lg">
                         <h3 class="text-2xl font-bold text-green-800 mb-4">Información Adicional</h3>
                          <ul class="space-y-3 text-gray-700">
-                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">👨‍👩‍👧‍👦</span><div><strong class="font-semibold text-gray-800">Niñ@s:</strong> Son más que bienvenidos y no pagan.</div></li>
+                           <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">👨‍👩‍👧‍👦</span><div><strong class="font-semibold text-gray-800">Promos, Becas e Intercambios:</strong> consultanos por whatsapp 261-2417038</div></li>
                            <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">🧺</span><div><strong class="font-semibold text-gray-800">Comida:</strong> Almuerzo y mate a la canasta para compartir.</div></li>
                            <li class="flex items-start"><span class="text-green-600 mr-3 mt-1">✅</span><div><strong class="font-semibold text-gray-800"> Cupos limitados:</strong> Tu lugar se asegura con el 50% del valor del módulo.</div></li>
                         </ul>
@@ -158,7 +189,7 @@
                      <p class="text-green-300"> Formulario: <a href="https://forms.gle/iypSJo8pY1dd6dGB8" target="_blank" class="hover:underline">https://forms.gle/iypSJo8pY1dd6dGB8</a> </p>
                  </div>
                  <div class="mt-12 border-t border-green-700 pt-8 text-green-300">
-                    <p>🌱🌐 ¡Unite a Permacultura & Futuro!</p>
+                    <p>🌱? ¡Unite a Permacultura & Futuro!</p>
                  </div>
             </div>
         </footer>
@@ -173,9 +204,10 @@
                 fullTitle: 'Charla Introducción al Diseño con Permacultura e IA',
                 date: 'Domingo 17 de Agosto',
                 location: 'Casa de Sergio (El Challao, Mendoza)',
-                time: '10 a 13 hs (teoría) | 14 a 18 hs (práctica)',
+                time: '10 a 17 hs (teoría y práctica)',
+                imageUrl: 'https://latinta.com.ar/wp-content/uploads/2020/12/principios-permaculturales-flor-tres-eticas-300x300.jpg',
                 content: {
-                    teoria: ['Permacultura - Principios éticos y de diseño', 'Presentación y propuesta del Curso', 'Introducción al uso de herramientas de IA para diseño de sistemas resilientes'],
+                    teoria: ['Permacultura - Principios éticos y de diseño', 'Presentación y propuesta del Curso', 'Introducción al uso IA para diseño regenerativo'],
                     practica: ['Caminata, ecología profunda, reconocimiento del entorno', 'Observación colectiva y mapeo participativo']
                 }
             },
@@ -183,9 +215,10 @@
                 id: 'modulo1',
                 title: 'Módulo I: Reproducción',
                 fullTitle: 'Cultiva un Bosque en tu patio, vereda o plaza más cercana',
-                date: 'Sábado 23 y Domingo 24 de Agosto',
+                date: 'Domingos 24 y 31 de Agosto',
                 location: 'Permacultura del Bosque (Los Barriales, Junín)',
                 time: '10 a 17 hs',
+                imageUrl: 'https://blogdefagro.com/wp-content/uploads/2021/01/shutterstock_102850718.png',
                 content: {
                     teoria: [
                         'Bosques comestibles y multifuncionales',
@@ -196,7 +229,7 @@
                     practica: [
                         'Trasplante de árboles a macetas',
                          'Reproducción de aromáticas',
-                        'Regalos de la Tierra: 8 árboles y 4 aromáticas para tu hogar',
+                        'Regalos de la Tierra: 5 árboles y 4 aromáticas para tu hogar',
                         'Incluye: durazno, ciruelo, damasco, olivo, vid, higuera, nogal, majuelo y acacia. Romero, ruda, matico y ajenjo'
                     ]
                 }
@@ -208,6 +241,7 @@
                 date: 'Sábado 27 y Domingo 28 de Septiembre',
                 location: 'Casa de Sergio (El Challao)',
                 time: '10 a 13 hs (teoría) | 14 a 17 hs (práctica)',
+                imageUrl: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9DOi_9GaiqnF3bh8PqvXOZAlgtiwZSt9atRnKQwmv_yigFOYV6noxWG05C9khe8xMYMo2P4cxxCnP9EEvR2SB0cghnBflUPClZ7FSBKlylaUkTagOFdGfSlp4IUXs-Igv04PaYU9wZ2NJ/s1600/linea+clave.png',
                 content: {
                     teoria: ['Agua y Tierra. Cosmovisión de los pueblos originarios', 'Captación, almacenamiento, distribución, purificación del agua', 'Keyline, swales, curvas de nivel. Prácticas ancestrales.', 'Uso de IA para crear y optimizar diseños'],
                     practica: ['Marcado de curvas de nivel', 'Identificación de puntos clave del terreno', 'Herramientas tradicionales y modernas para análisis de suelo']
@@ -216,22 +250,24 @@
             {
                 id: 'modulo3',
                 title: 'Módulo III: Goteo',
-                fullTitle: 'Diseño Hidrológico 2: Riego por Goteo',
-                date: 'Sábado 18 y Domingo 19 de Octubre',
+                fullTitle: 'Diseño Hidrológico 2: Uso óptimo y zonificación',
+                date: 'Sábado 18 de Octubre',
                 location: 'Casa de Sergio (El Challao)',
-                time: '10 a 13 hs | 14 a 17 hs',
+                time: '10 a 17 hs',
+                imageUrl: 'https://grupohidraulica.com/wp-content/uploads/2023/04/riego-por-goteo-1024x682.jpeg',
                 content: {
-                    teoria: ['Diseño de sistemas de riego asistidos. Optimización.', 'Captación, purificación, filtrado, almacenamiento, conducción, distribución, dosificación y automatización', 'Sistemas de reuso: biofiltros.'],
-                    practica: ['Inicio de instalación del riego. Tubería, accesorios, tecnologías existentes y herramientas necesarias']
+                    teoria: ['Sistemas de riego asistidos. Optimización.', 'Captación, purificación, filtrado, almacenamiento, conducción, distribución, dosificación y automatización', 'Sistemas de reuso: biofiltros.'],
+                    practica: ['Mapeo, zonificación y diseño colectivo in-situ']
                 }
             },
             {
                 id: 'modulo4',
                 title: 'Módulo IV: Celebración',
                 fullTitle: 'Implantación del Bosque', 
-                date: 'Sábado 22 y Domingo 23 de Noviembre',
+                date: 'Domingo 9 de Noviembre',
                 location: 'Casa de Sergio (El Challao)',
-                time: '10 a 13 hs (teoría) | 14 a 18 hs (práctica)',
+                time: '10 a 17 hs (práctica)',
+                imageUrl: 'https://cdn0.ecologiaverde.com/es/posts/9/6/2/como_ayudar_a_la_reforestacion_1269_3_600.webp',
                 content: {
                     teoria: ['Siembra comunitaria de suelos. Agricultura natural vs. biointensiva.', 'Compostaje', 'Bancos de semillas'],
                     practica: ['Forestación colectiva. Transplantes', 'Creación de nichos ecológicos.', 'Cierre de ciclo y celebración.']
@@ -258,11 +294,16 @@
             let practicaList = module.content.practica.map(item => `<li class="flex items-start"><span class="text-green-600 mr-2 mt-1">▪</span>${item}</li>`).join('');
 
             contentContainer.innerHTML = `
-                <h3 class="text-2xl font-bold text-green-800">${module.fullTitle}</h3>
-                <div class="text-gray-500 mt-2 mb-4 space-x-4">
-                    <span>📅 ${module.date}</span>
-                    <span>📍 ${module.location}</span>
-                    <span>🕐 ${module.time}</span>
+                <div class="flex flex-col md:flex-row gap-6 mb-6">
+                    ${module.imageUrl ? `<img src="${module.imageUrl}" alt="" class="w-full md:w-1/3 h-48 object-cover rounded-lg shadow-md mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x200/A0C49D/FFFFFF?text=Imagen+No+Disponible';">` : ''}
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold text-green-800">${module.fullTitle}</h3>
+                        <div class="text-gray-500 mt-2 mb-4 space-x-4">
+                            <span>📅 ${module.date}</span>
+                            <span>📍 ${module.location}</span>
+                            <span>🕐 ${module.time}</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6 mt-6">
                     <div>
